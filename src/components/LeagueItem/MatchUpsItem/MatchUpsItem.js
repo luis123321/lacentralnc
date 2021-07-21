@@ -340,7 +340,7 @@ const MatchUpsItem = ({data}) => {
 
   return (
     <TableContainer>
-      <Table className={classes.table} aria-label="caption table">
+      <Table className={classes.table} aria-label="caption table" >
         <TableHead>
           <TableRow>
             {

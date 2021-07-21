@@ -12,9 +12,12 @@ import Button from '@material-ui/core/Button';
 import LanguageIcon from '@material-ui/icons/Language';
 import Brightness7Icon from '@material-ui/icons/Brightness7';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
+import Popover from '@material-ui/core/Popover';
 import SyncIcon from '@material-ui/icons/Sync';
 import SelectAllIcon from '@material-ui/icons/SelectAll';
 import { setColorMode } from 'store/modules/layout/actions';
+import ResultPop from '../ResultPop';
+import ParlayDialog  from 'components/ParlayDialog';
 import header_logo from '../../assets/logo.png';
 
 const useStyles = makeStyles((theme) => ({
@@ -63,12 +66,14 @@ const Header = () => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const [anchorResultEl, setAnchorResultEl] = React.useState(null);
 
   const state = useSelector(state => state);
   const dispatch = useDispatch();
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+  const [parlayOpen, setParlayOpen] = React.useState(false);
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -86,6 +91,24 @@ const Header = () => {
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
+
+  const handleOpenResult = (event) => {
+    setAnchorResultEl(event.currentTarget);
+  };
+
+  const handleCloseResult = () => {
+    setAnchorResultEl(null);
+  };
+
+  const handleParlayOpen = () => {
+    setParlayOpen(true);
+  };
+
+  const handleCloseParlay = () => {
+    setParlayOpen(false);
+  };
+
+  const resultOpen = Boolean(anchorResultEl);
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
@@ -119,6 +142,7 @@ const Header = () => {
           color="inherit"
           className={classes.button}
           startIcon={<SelectAllIcon />}
+          onClick={handleParlayOpen}
         >
           Parlay
         </Button>
@@ -127,30 +151,10 @@ const Header = () => {
         <Button
           color="inherit"
           className={classes.button}
+          startIcon={<SyncIcon />}
         >
-          results
+          Auto sync
         </Button>
-      </MenuItem>
-      <MenuItem>
-        <IconButton aria-label="show 17 new notifications" color="inherit">
-          <LanguageIcon />
-        </IconButton>
-      </MenuItem>
-      <MenuItem>
-        <IconButton 
-          aria-label="show 17 new notifications" 
-          color="inherit" 
-          onClick={()=>{
-            console.log('state.layout.darkMode', state.layout.darkMode);
-            dispatch(setColorMode(!state.layout.darkMode))
-          }}
-        >
-          {
-            state.layout.darkMode?
-              <Brightness7Icon style={{fontSize:'17px'}}/>:
-              <Brightness4Icon style={{fontSize:'17px'}}/>
-          } 
-        </IconButton>
       </MenuItem>
     </Menu>
   );
@@ -173,12 +177,14 @@ const Header = () => {
               color="inherit"
               className={classes.button}
               startIcon={<SelectAllIcon />}
+              onClick={handleParlayOpen}
             >
               Parlay
             </Button>
             <Button
               color="inherit"
               className={classes.button}
+              onClick={handleOpenResult}
             >
               results
             </Button>
@@ -201,13 +207,31 @@ const Header = () => {
             </IconButton>
           </div>
           <div className={classes.sectionMobile}>
+            
             <Button
               color="inherit"
               className={classes.button}
-              startIcon={<SyncIcon />}
+              onClick={handleOpenResult}
             >
-              Auto sync
+              results
             </Button>
+            <IconButton aria-label="show 17 new notifications" color="inherit">
+              <LanguageIcon />
+            </IconButton>
+            <IconButton 
+              aria-label="show 17 new notifications" 
+              color="inherit" 
+              onClick={()=>{
+                console.log('state.layout.darkMode', state.layout.darkMode);
+                dispatch(setColorMode(!state.layout.darkMode))
+              }}
+            >
+              {
+                state.layout.darkMode?
+                  <Brightness7Icon style={{fontSize:'17px'}}/>:
+                  <Brightness4Icon style={{fontSize:'17px'}}/>
+              } 
+            </IconButton>
             <IconButton
               aria-label="show more"
               aria-controls={mobileMenuId}
@@ -222,6 +246,22 @@ const Header = () => {
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
+      <Popover
+        open={resultOpen}
+        anchorEl={anchorResultEl}
+        onClose={handleCloseResult}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+      >
+        <ResultPop />
+      </Popover>
+      <ParlayDialog open={parlayOpen} onClose={handleCloseParlay} />
     </div>
   );
 }

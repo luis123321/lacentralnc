@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import './intro.scss'
+import './Intro.scss'
 import Grid from '@material-ui/core/Grid';
 import header_right from '../../assets/header_right.png';
 import * as SportService from 'services/lasport.service';
@@ -8,6 +8,7 @@ import Container from '@material-ui/core/Container';
 import LeagueItem from '../LeagueItem';
 import Welcome from '../Welcome';
 import Alert from '@material-ui/lab/Alert';
+import ResultPop from '../ResultPop';
 
 const Intro = () => {
 
@@ -22,6 +23,7 @@ const Intro = () => {
 
   return (
     <React.Fragment>
+      <div style={{marginTop:'100px'}} />
       <Container fixed>
         {
           data?data.length!==0?

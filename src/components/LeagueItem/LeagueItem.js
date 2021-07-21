@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   cardTitle: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
 }));
 
@@ -48,6 +48,7 @@ const LeagueItem = ({data}) => {
         <Typography className={classes.title} color="textSecondary" gutterBottom>
           Active Match ups {data.matchUps.length}
         </Typography>
+        <div style={{marginTop:'50px'}} />
         <MatchUpsItem data={data} />
         {sport===1&&
           <div style={{marginTop:'20px'}}>

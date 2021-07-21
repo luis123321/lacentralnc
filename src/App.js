@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { useSelector } from 'react-redux';
 import './App.css';
 import Header from './components/header';
-import Intro from './components/intro';
+import Intro from './components/Intro';
 import { createTheme , ThemeProvider } from "@material-ui/core/styles";
 import blue from '@material-ui/core/colors/blue';
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -18,6 +18,9 @@ function App() {
           background: {
             paper: state.layout.darkMode?'#1E1E1E':'#fff',
             default: state.layout.darkMode?'#121212':'#fafafa',
+          },
+          primary: {
+            main: '#E2A423'
           }
         },
         typography: {
@@ -36,10 +39,6 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Header />
-        <br/>
-        <br/>
-        <br/>
-        <br/>
         <Intro />
       </ThemeProvider>
     </div>
