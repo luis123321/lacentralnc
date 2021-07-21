@@ -5,10 +5,10 @@ import header_right from '../../assets/header_right.png';
 import * as SportService from 'services/lasport.service';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import LeagueItem from '../LeagueItem';
+import LeagueItem from '../LeagueItem/';
 import Welcome from '../Welcome';
 import Alert from '@material-ui/lab/Alert';
-import ResultPop from '../ResultPop';
+import ResultPop from '../ResultPop/';
 
 const Intro = () => {
 

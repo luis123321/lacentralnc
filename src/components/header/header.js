@@ -17,7 +17,7 @@ import SyncIcon from '@material-ui/icons/Sync';
 import SelectAllIcon from '@material-ui/icons/SelectAll';
 import { setColorMode } from 'store/modules/layout/actions';
 import ResultPop from '../ResultPop';
-import ParlayDialog  from 'components/ParlayDialog';
+import ParlayDialog  from 'components/ParlayDialog/';
 import header_logo from '../../assets/logo.png';
 
 const useStyles = makeStyles((theme) => ({

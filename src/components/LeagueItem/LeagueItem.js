@@ -3,10 +3,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import MatchUpsItem from './MatchUpsItem';
-import Sport1Extended from './Sport1Extended';
-import Sport1FirstThird from './Sport1FirstThird';
-import Sport3Periods from './Sport3Periods';
+import MatchUpsItem from './MatchUpsItem/';
+import Sport1Extended from './Sport1Extended/';
+import Sport1FirstThird from './Sport1FirstThird/';
+import Sport3Periods from './Sport3Periods/';
 
 const useStyles = makeStyles((theme) => ({
   root: {
