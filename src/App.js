@@ -39,7 +39,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Header />
-        <Intro />
+        {/* <Intro /> */}
       </ThemeProvider>
     </div>
   );
