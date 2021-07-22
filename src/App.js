@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { useSelector } from 'react-redux';
 import './App.css';
 import Header from './components/header/';
-import Intro from './components/Intro/';
+// import Intro from './components/Intro/';
 import { createTheme , ThemeProvider } from "@material-ui/core/styles";
 import blue from '@material-ui/core/colors/blue';
 import CssBaseline from "@material-ui/core/CssBaseline";
