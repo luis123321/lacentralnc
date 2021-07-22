@@ -4,7 +4,7 @@ import * as SportService from 'services/lasport.service';
 import Container from '@material-ui/core/Container';
 import LeagueItem from 'components/LeagueItem/';
 import Welcome from 'components/Welcome/';
-import './Intro.scss';
+import './intro.scss';
 
 const Intro = () => {
 
