@@ -1,14 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import './Intro.scss'
-import Grid from '@material-ui/core/Grid';
-import header_right from '../../assets/header_right.png';
-import * as SportService from 'services/lasport.service';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
-import LeagueItem from '../LeagueItem/';
-import Welcome from '../Welcome';
 import Alert from '@material-ui/lab/Alert';
-import ResultPop from '../ResultPop/';
+import * as SportService from 'services/lasport.service';
+import Container from '@material-ui/core/Container';
+import LeagueItem from 'components/LeagueItem/';
+import Welcome from 'components/Welcome/';
+import './Intro.scss';
 
 const Intro = () => {
 
@@ -16,7 +12,6 @@ const Intro = () => {
   useEffect(()=>{
     SportService.getSportData().then(response=>{      
       const filterData = response.filter(item=>item.matchUps.length!==0);
-      console.log('response', filterData)
       setData(filterData);
     })
   }, [])
