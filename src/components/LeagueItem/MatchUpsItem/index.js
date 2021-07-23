@@ -379,7 +379,6 @@ const MatchUpsItem = ({data}) => {
           {
             sport===1&&data.matchUps.map((item, index)=>{
               const jsonData = filterSport1(item);
-              console.log('jsonData', jsonData);
               return sport1Table(jsonData, index)
             })
           }
@@ -392,7 +391,6 @@ const MatchUpsItem = ({data}) => {
           {
             sport===3&&data.matchUps.map((item, index)=>{
               const jsonData = filterSport3(item);
-              console.log('sport---3', jsonData);
               return sport3Table(jsonData, index)
             })
           }

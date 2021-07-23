@@ -109,7 +109,6 @@ const MatchUpsItem = ({data}) => {
           {
             sport===1&&data.matchUps.map((item, index)=>{
               const jsonData = filterSport1FirstThird(item);
-              console.log('jsonData', jsonData);
               return sport1TableFirstThird(jsonData, index)
             })
           }

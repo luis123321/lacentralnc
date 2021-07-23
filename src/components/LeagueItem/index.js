@@ -10,7 +10,7 @@ import Sport3Periods from './Sport3Periods/';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    margin: theme.spacing(3),
+    // margin: theme.spacing(3),
   },
   bullet: {
     display: 'inline-block',

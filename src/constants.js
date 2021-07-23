@@ -1,3 +1,7 @@
+export const strapiURL = 'https://strapi-test-rockstar.herokuapp.com';
+export const googleAnalyticsTrackId = 'UA-203061377-1';
+export const CrispId = '14a7fb41-09b8-4916-976a-27f195b46ca1';
+
 export const sportHeader1 = [
   'Time', '#', 'Team', 'M.L', 'Total', '(O/U)$', 'RL', 'Y-N', 'SRL', 'Solo'
 ]

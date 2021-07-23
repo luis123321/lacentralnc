@@ -127,7 +127,6 @@ const Sport1Extended = ({data}) => {
           {
             sport===1&&data.matchUps.map((item, index)=>{
               const jsonData = filterSport1Extended(item);
-              console.log('jsonData', jsonData);
               return sport1TableExtended(jsonData, index)
             })
           }

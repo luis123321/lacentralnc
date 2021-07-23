@@ -136,7 +136,6 @@ const Sport3Periods = ({data}) => {
           {
             sport===3&&data.matchUps.map((item, index)=>{
               const jsonData = filterSport3Periods(item);
-              console.log('jsonData', jsonData);
               return sport3TablePeriods(jsonData, index)
             })
           }

@@ -1,7 +1,7 @@
 import { COLOR_MODE } from './types'
 
 const initialState = {
-  darkMode: true,
+  darkMode: false,
 }
 
 export default (state = initialState, action) => {
