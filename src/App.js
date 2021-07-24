@@ -1,11 +1,9 @@
 import React, {useEffect} from 'react';
 import { useSelector } from 'react-redux';
 import { createTheme , ThemeProvider } from "@material-ui/core/styles";
-import Crisp from 'react-crisp';
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Header from './components/header/';
 import Intro from './components/intro/';
-import { CrispId } from './constants';
 import './App.css';
 
 
@@ -35,21 +33,6 @@ function App() {
       }),
     [state.layout.darkMode]
   );
-  
-  useEffect(()=>{
-      // Include the Crisp code here, without the <script></script> tags
-      window.$crisp = [];
-      window.CRISP_WEBSITE_ID = CrispId;
-  
-      (function() {
-        var d = document;
-        var s = d.createElement("script");
-  
-        s.src = "https://client.crisp.chat/l.js";
-        s.async = 1;
-        d.getElementsByTagName("head")[0].appendChild(s);
-      })();
-  }, [])
 
   return (    
     <div className="App">
@@ -57,7 +40,6 @@ function App() {
         <CssBaseline />
         <Header />
         <Intro />
-        {/* <Crisp crispWebsiteId={CrispId} /> */}
       </ThemeProvider>
     </div>
   );
