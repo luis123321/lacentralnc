@@ -137,8 +137,8 @@ export const filterSport1Extended = (item) => {
       }
     },
     so: {
-      awayTeam: item.lines.otherLines.awayTeam.pitcherStrikeOutsSpread.toFixed(1),
-      homeTeam: item.lines.otherLines.homeTeam.pitcherStrikeOutsSpread.toFixed(1),
+      awayTeam: item.lines.otherLines.awayTeam.pitcherStrikeOutsSpread!==null?item.lines.otherLines.awayTeam.pitcherStrikeOutsSpread.toFixed(1):'',
+      homeTeam: item.lines.otherLines.homeTeam.pitcherStrikeOutsSpread!==null?item.lines.otherLines.homeTeam.pitcherStrikeOutsSpread.toFixed(1):'',
     },
     altRL: {
       awayTeam: {
