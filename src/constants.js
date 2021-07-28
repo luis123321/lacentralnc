@@ -243,16 +243,16 @@ export const filterSport3 = (item) => {
       homeTeam: item.lines.fullGame.homeTeam.moneyLine>0?`+${item.lines.fullGame.homeTeam.moneyLine}`:item.lines.fullGame.homeTeam.moneyLine,
     },
     spread: {
-     one: item.lines.fullGame.spread.toFixed(1),
-     two: item.lines.fullGame.homeTeam.runLineSpread.toFixed(1) 
+     one: item.lines.fullGame.spread===null?'':item.lines.fullGame.spread.toFixed(1),
+     two: item.lines.fullGame.homeTeam.runLineSpread===null?'':item.lines.fullGame.homeTeam.runLineSpread.toFixed(1) 
     },
     solo: {
       awayTeam: item.lines.fullGame.awayTeam.spread,
       homeTeam: item.lines.fullGame.homeTeam.spread,
     },
     h1: {
-      one: item.lines.firstHalf.spread.toFixed(1),
-      two: item.lines.firstHalf.homeTeam.runLineSpread.toFixed(1)
+      one: item.lines.firstHalf.spread===null?'':item.lines.firstHalf.spread.toFixed(1),
+      two: item.lines.firstHalf.homeTeam.runLineSpread===null?'':item.lines.firstHalf.homeTeam.runLineSpread.toFixed(1)
     },
     hSolo: {
       awayTeam: item.lines.firstHalf.awayTeam.spread,
@@ -284,32 +284,32 @@ export const filterSport3Periods = (item) => {
       homeTeam: item.lines.firstPeriod.homeTeam.runLineSpread>0?`+${item.lines.firstPeriod.homeTeam.runLineSpread}`:item.lines.firstPeriod.homeTeam.runLineSpread,
     },
     q1S: {
-      awayTeam: item.lines.firstPeriod.awayTeam.spread.toFixed(1),
-      homeTeam: item.lines.firstPeriod.homeTeam.spread.toFixed(1),
+      awayTeam: item.lines.firstPeriod.awayTeam.spread===null?'':item.lines.firstPeriod.awayTeam.spread.toFixed(1),
+      homeTeam: item.lines.firstPeriod.homeTeam.spread===null?'':item.lines.firstPeriod.homeTeam.spread.toFixed(1),
     },
     q2: {
       awayTeam: item.lines.secondPeriod.awayTeam.runLineSpread>0?`+${item.lines.secondPeriod.awayTeam.runLineSpread}`:item.lines.secondPeriod.awayTeam.runLineSpread,
       homeTeam: item.lines.secondPeriod.homeTeam.runLineSpread>0?`+${item.lines.secondPeriod.homeTeam.runLineSpread}`:item.lines.secondPeriod.homeTeam.runLineSpread,
     },
     q2S: {
-      awayTeam: item.lines.secondPeriod.awayTeam.spread.toFixed(1),
-      homeTeam: item.lines.secondPeriod.homeTeam.spread.toFixed(1),
+      awayTeam: item.lines.secondPeriod.awayTeam.spread===null?'':item.lines.secondPeriod.awayTeam.spread.toFixed(1),
+      homeTeam: item.lines.secondPeriod.homeTeam.spread===null?'':item.lines.secondPeriod.homeTeam.spread.toFixed(1),
     },
     q3: {
       awayTeam: item.lines.thirdPeriod.awayTeam.runLineSpread>0?`+${item.lines.thirdPeriod.awayTeam.runLineSpread}`:item.lines.thirdPeriod.awayTeam.runLineSpread,
       homeTeam: item.lines.thirdPeriod.homeTeam.runLineSpread>0?`+${item.lines.thirdPeriod.homeTeam.runLineSpread}`:item.lines.thirdPeriod.homeTeam.runLineSpread,
     },
     q3S: {
-      awayTeam: item.lines.thirdPeriod.awayTeam.spread.toFixed(1),
-      homeTeam: item.lines.thirdPeriod.homeTeam.spread.toFixed(1),
+      awayTeam: item.lines.thirdPeriod.awayTeam.spread===null?'':item.lines.thirdPeriod.awayTeam.spread.toFixed(1),
+      homeTeam: item.lines.thirdPeriod.homeTeam.spread===null?'':item.lines.thirdPeriod.homeTeam.spread.toFixed(1),
     },
     q4: {
       awayTeam: item.lines.fourthPeriod.awayTeam.runLineSpread>0?`+${item.lines.fourthPeriod.awayTeam.runLineSpread}`:item.lines.fourthPeriod.awayTeam.runLineSpread,
       homeTeam: item.lines.fourthPeriod.homeTeam.runLineSpread>0?`+${item.lines.fourthPeriod.homeTeam.runLineSpread}`:item.lines.fourthPeriod.homeTeam.runLineSpread,
     },
     q4S: {
-      awayTeam: item.lines.fourthPeriod.awayTeam.spread.toFixed(1),
-      homeTeam: item.lines.fourthPeriod.homeTeam.spread.toFixed(1),
+      awayTeam: item.lines.fourthPeriod.awayTeam.spread===null?'':item.lines.fourthPeriod.awayTeam.spread.toFixed(1),
+      homeTeam: item.lines.fourthPeriod.homeTeam.spread===null?'':item.lines.fourthPeriod.homeTeam.spread.toFixed(1),
     },
   }
   return filterMatchUps;
