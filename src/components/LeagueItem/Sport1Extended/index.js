@@ -91,6 +91,10 @@ const Sport1Extended = ({data}) => {
         </div>
       </StyledTableCell>
       <StyledTableCell className='sport-1-extended-so'>
+        <div style={{display:'flex', flexDirection:'column'}}>
+          <span>{jsonData.so.awayTeam}</span>
+          <span>{jsonData.so.homeTeam}</span>
+        </div>
         <span>{jsonData.so}</span>
       </StyledTableCell>
       <StyledTableCell className='sport-1-extended-alt-rl'>
