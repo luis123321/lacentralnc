@@ -11,12 +11,14 @@ import {
   sportHeader1,
   sportHeader2,
   sportHeader3,
+  sportHeader6,
   sportHeader7,
   sportHeader9,
   sportHeader10,
   filterSport1,
   filterSport2,
   filterSport3,
+  filterSport6,
   filterSport7,
   filterSport9,
   filterSport10  
@@ -221,6 +223,62 @@ const MatchUpsItem = ({data}) => {
     </TableRow>
   )
 
+  const sport6Table = (jsonData, index) => (
+    <TableRow key={index} hover>
+      <StyledTableCell className='sport-6-time' align='center'>
+        {jsonData.time}
+      </StyledTableCell>
+      <StyledTableCell className='sport-6-#'>
+        <div style={{display:'flex', flexDirection:'column'}}>
+          <span>{jsonData.fourDigitCode.awayTeam}</span>
+          <span>{jsonData.fourDigitCode.homeTeam}</span>
+        </div>
+      </StyledTableCell>
+      <StyledTableCell className='sport-6-team'>
+        <div style={{display:'flex', flexDirection:'column'}}>
+          <div style={{display:'flex', flexDirection:'row', alignItems:'center'}}>
+            <img src={jsonData.team.awayTeam.img} alt='awayTeam' width={25}/>
+            <span style={{marginLeft:'10px'}}>{jsonData.team.awayTeam.name}</span>
+          </div>
+          <div style={{display:'flex', flexDirection:'row', alignItems:'center'}}>
+            <img src={jsonData.team.homeTeam.img} alt='homeTeam'  width={25}/>
+            <span style={{marginLeft:'10px'}}>{jsonData.team.homeTeam.name}</span>
+          </div>
+        </div>
+      </StyledTableCell>
+      <StyledTableCell className='sport-6-ml'>
+        <div style={{display:'flex', flexDirection:'column'}}>
+          <span>{jsonData.moneyLine.awayTeam}</span>
+          <span>{jsonData.moneyLine.homeTeam}</span>
+        </div>
+      </StyledTableCell>
+      <StyledTableCell className='sport-6-spread'>
+        <div style={{display:'flex', flexDirection:'column'}}>
+          <span>{jsonData.spread.one}</span>
+          <span>{jsonData.spread.two}</span>
+        </div>
+      </StyledTableCell>
+      <StyledTableCell className='sport-6-solo'>
+        <div style={{display:'flex', flexDirection:'column'}}>
+          <span>{jsonData.solo.awayTeam}</span>
+          <span>{jsonData.solo.homeTeam}</span>
+        </div>
+      </StyledTableCell>
+      <StyledTableCell className='sport-6-hl'>
+        <div style={{display:'flex', flexDirection:'column'}}>
+          <span>{jsonData.h1.one}</span>
+          <span>{jsonData.h1.two}</span>
+        </div>
+      </StyledTableCell>
+      <StyledTableCell className='sport-6-h-solo'>
+        <div style={{display:'flex', flexDirection:'column'}}>
+          <span>{jsonData.hSolo.awayTeam}</span>
+          <span>{jsonData.hSolo.homeTeam}</span>
+        </div>
+      </StyledTableCell>
+    </TableRow>
+  )
+
   const sport7Table = (jsonData, index) => (
     <TableRow key={index} hover>
       <StyledTableCell className='sport-7-time' align='center'>
@@ -359,6 +417,11 @@ const MatchUpsItem = ({data}) => {
               ))
             }
             {
+              sport===6&&sportHeader6.map(item=>(
+                <TableCell>{item}</TableCell>
+              ))
+            }
+            {
               sport===7&&sportHeader7.map(item=>(
                 <TableCell>{item}</TableCell>
               ))
@@ -392,6 +455,12 @@ const MatchUpsItem = ({data}) => {
             sport===3&&data.matchUps.map((item, index)=>{
               const jsonData = filterSport3(item);
               return sport3Table(jsonData, index)
+            })
+          }
+          {
+            sport===6&&data.matchUps.map((item, index)=>{
+              const jsonData = filterSport6(item);
+              return sport6Table(jsonData, index)
             })
           }
           {

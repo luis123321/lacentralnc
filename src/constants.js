@@ -30,6 +30,14 @@ export const sportHeader3Periods = [
   'Time', '#', 'Team', 'Q1', 'Q1-S', 'Q2', 'Q2-S', 'Q3', 'Q3-S', 'Q4', 'Q4-S'
 ]
 
+export const sportHeader6 = [
+  'Time', '#', 'Team', 'M.L', 'Spread', 'Solo', 'H1', 'H-Solo'
+]
+
+export const sportHeader6Periods = [
+  'Time', '#', 'Team', 'Q1', 'Q1-S', 'Q2', 'Q2-S', 'Q3', 'Q3-S', 'Q4', 'Q4-S'
+]
+
 export const sportHeader7 = [
   'Time', '#', 'Team', 'M.L', 'R.L', 'R.L$', 'Total', '(O/U)$', 'Tie'
 ]
@@ -263,6 +271,101 @@ export const filterSport3 = (item) => {
 } 
 
 export const filterSport3Periods = (item) => {
+  const filterMatchUps = {
+    time: item.time,
+    fourDigitCode: {
+      awayTeam: item.information.awayTeam.fourDigitCode,
+      homeTeam: item.information.home_team.fourDigitCode,
+    },
+    team: {
+      awayTeam: {
+        img: item.information.awayTeam.image.url,
+        name: item.information.awayTeam.displayName,
+      },
+      homeTeam: {
+        img: item.information.home_team.image.url,
+        name: item.information.home_team.displayName,
+      },
+    },
+    q1: {
+      awayTeam: item.lines.firstPeriod.awayTeam.runLineSpread>0?`+${item.lines.firstPeriod.awayTeam.runLineSpread}`:item.lines.firstPeriod.awayTeam.runLineSpread,
+      homeTeam: item.lines.firstPeriod.homeTeam.runLineSpread>0?`+${item.lines.firstPeriod.homeTeam.runLineSpread}`:item.lines.firstPeriod.homeTeam.runLineSpread,
+    },
+    q1S: {
+      awayTeam: item.lines.firstPeriod.awayTeam.spread===null?'':item.lines.firstPeriod.awayTeam.spread.toFixed(1),
+      homeTeam: item.lines.firstPeriod.homeTeam.spread===null?'':item.lines.firstPeriod.homeTeam.spread.toFixed(1),
+    },
+    q2: {
+      awayTeam: item.lines.secondPeriod.awayTeam.runLineSpread>0?`+${item.lines.secondPeriod.awayTeam.runLineSpread}`:item.lines.secondPeriod.awayTeam.runLineSpread,
+      homeTeam: item.lines.secondPeriod.homeTeam.runLineSpread>0?`+${item.lines.secondPeriod.homeTeam.runLineSpread}`:item.lines.secondPeriod.homeTeam.runLineSpread,
+    },
+    q2S: {
+      awayTeam: item.lines.secondPeriod.awayTeam.spread===null?'':item.lines.secondPeriod.awayTeam.spread.toFixed(1),
+      homeTeam: item.lines.secondPeriod.homeTeam.spread===null?'':item.lines.secondPeriod.homeTeam.spread.toFixed(1),
+    },
+    q3: {
+      awayTeam: item.lines.thirdPeriod.awayTeam.runLineSpread>0?`+${item.lines.thirdPeriod.awayTeam.runLineSpread}`:item.lines.thirdPeriod.awayTeam.runLineSpread,
+      homeTeam: item.lines.thirdPeriod.homeTeam.runLineSpread>0?`+${item.lines.thirdPeriod.homeTeam.runLineSpread}`:item.lines.thirdPeriod.homeTeam.runLineSpread,
+    },
+    q3S: {
+      awayTeam: item.lines.thirdPeriod.awayTeam.spread===null?'':item.lines.thirdPeriod.awayTeam.spread.toFixed(1),
+      homeTeam: item.lines.thirdPeriod.homeTeam.spread===null?'':item.lines.thirdPeriod.homeTeam.spread.toFixed(1),
+    },
+    q4: {
+      awayTeam: item.lines.fourthPeriod.awayTeam.runLineSpread>0?`+${item.lines.fourthPeriod.awayTeam.runLineSpread}`:item.lines.fourthPeriod.awayTeam.runLineSpread,
+      homeTeam: item.lines.fourthPeriod.homeTeam.runLineSpread>0?`+${item.lines.fourthPeriod.homeTeam.runLineSpread}`:item.lines.fourthPeriod.homeTeam.runLineSpread,
+    },
+    q4S: {
+      awayTeam: item.lines.fourthPeriod.awayTeam.spread===null?'':item.lines.fourthPeriod.awayTeam.spread.toFixed(1),
+      homeTeam: item.lines.fourthPeriod.homeTeam.spread===null?'':item.lines.fourthPeriod.homeTeam.spread.toFixed(1),
+    },
+  }
+  return filterMatchUps;
+} 
+
+
+export const filterSport6 = (item) => {
+  const filterMatchUps = {
+    time: item.time,
+    fourDigitCode: {
+      awayTeam: item.information.awayTeam.fourDigitCode,
+      homeTeam: item.information.home_team.fourDigitCode,
+    },
+    team: {
+      awayTeam: {
+        img: item.information.awayTeam.image.url,
+        name: item.information.awayTeam.displayName,
+      },
+      homeTeam: {
+        img: item.information.home_team.image.url,
+        name: item.information.home_team.displayName,
+      },
+    },
+    moneyLine: {
+      awayTeam: item.lines.fullGame.awayTeam.moneyLine>0?`+${item.lines.fullGame.awayTeam.moneyLine}`:item.lines.fullGame.awayTeam.moneyLine,
+      homeTeam: item.lines.fullGame.homeTeam.moneyLine>0?`+${item.lines.fullGame.homeTeam.moneyLine}`:item.lines.fullGame.homeTeam.moneyLine,
+    },
+    spread: {
+     one: item.lines.fullGame.spread===null?'':item.lines.fullGame.spread.toFixed(1),
+     two: item.lines.fullGame.homeTeam.runLineSpread===null?'':item.lines.fullGame.homeTeam.runLineSpread.toFixed(1) 
+    },
+    solo: {
+      awayTeam: item.lines.fullGame.awayTeam.spread===null?'':item.lines.fullGame.awayTeam.spread.toFixed(1),
+      homeTeam: item.lines.fullGame.homeTeam.spread===null?'':item.lines.fullGame.homeTeam.spread.toFixed(1),
+    },
+    h1: {
+      one: item.lines.firstHalf.spread===null?'':item.lines.firstHalf.spread.toFixed(1),
+      two: item.lines.firstHalf.homeTeam.runLineSpread===null?'':item.lines.firstHalf.homeTeam.runLineSpread.toFixed(1)
+    },
+    hSolo: {
+      awayTeam: item.lines.firstHalf.awayTeam.spread===null?'':item.lines.firstHalf.awayTeam.spread.toFixed(1),
+      homeTeam: item.lines.firstHalf.homeTeam.spread===null?'':item.lines.firstHalf.homeTeam.spread.toFixed(1),
+    }
+  }
+  return filterMatchUps;
+} 
+
+export const filterSport6Periods = (item) => {
   const filterMatchUps = {
     time: item.time,
     fourDigitCode: {

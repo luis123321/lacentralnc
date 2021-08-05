@@ -7,10 +7,11 @@ import MatchUpsItem from './MatchUpsItem/';
 import Sport1Extended from './Sport1Extended/';
 import Sport1FirstThird from './Sport1FirstThird/';
 import Sport3Periods from './Sport3Periods/';
+import Sport6Periods from './Sport6Periods/';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    // margin: theme.spacing(3),
+    margin: '20px 0',
   },
   bullet: {
     display: 'inline-block',
@@ -72,6 +73,14 @@ const LeagueItem = ({data}) => {
               Periods
             </Typography>
             <Sport3Periods data={data} />
+          </div>
+        }
+        {sport===6&&
+          <div style={{marginTop:'20px'}}>
+            <Typography variant="h5" style={{fontWeight:'bold', color:'grey'}}>
+              Periods
+            </Typography>
+            <Sport6Periods data={data} />
           </div>
         }
       </CardContent>
