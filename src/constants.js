@@ -1,10 +1,10 @@
 // develop
-export const strapiURL = 'https://strapi-test-rockstar.herokuapp.com';
-export const googleAnalyticsTrackId = 'UA-203061377-1';
+// export const strapiURL = 'https://strapi-test-rockstar.herokuapp.com';
+// export const googleAnalyticsTrackId = 'UA-203061377-1';
 
 // production
-// export const strapiURL = 'https://lascenter-sport.herokuapp.com';
-// export const googleAnalyticsTrackId = 'UA-203153942-1';
+export const strapiURL = 'https://lascenter-sport.herokuapp.com';
+export const googleAnalyticsTrackId = 'UA-203153942-1';
 
 export const sportHeader1 = [
   'Time', '#', 'Team', 'M.L', 'Total', '(O/U)$', 'RL', 'Y-N', 'SRL', 'Solo'
@@ -495,7 +495,7 @@ export const filterSport10 = (item) => {
       location: item.information.awayTeam.location,
       name: item.information.awayTeam.name,
     },
-    category: item.lines.fullGame.categoryId,
+    category: Number(item.lines.fullGame.categoryId)%2===0?'Ru Yards':'Pa Yards',
     total: item.lines.fullGame.data,
     overUnder: {
       over: item.lines.fullGame.over,
